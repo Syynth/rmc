@@ -22,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/Syynth/rmc/issues"
   },
-  "homepage": "https://github.com/Syynth/rmc#readme"
+  "homepage": "https://github.com/Syynth/rmc#readme",
+  "dependencies": {
+    "babel-jest": "^5.3.0",
+    "jest-cli": "^0.5.0",
+    "react": "^0.14.0-beta1",
+    "react-dom": "^0.14.0-beta1"
+  }
 }
