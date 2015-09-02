@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest -c jest.config.json",
-    "docs": "jsdoc -c jsdoc.config.json -d docs"
+    "docs": "jsdoc src -c jsdoc.config.json -d docs"
   },
   "repository": {
     "type": "git",
