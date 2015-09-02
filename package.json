@@ -1,0 +1,26 @@
+{
+  "name": "rmc",
+  "version": "0.0.1",
+  "description": "React Meta Components Core",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Syynth/rmc.git"
+  },
+  "keywords": [
+    "React",
+    "component",
+    "builder",
+    "meta",
+    "wyswig"
+  ],
+  "author": "Ben Cochrane <ben.cochrane2112@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Syynth/rmc/issues"
+  },
+  "homepage": "https://github.com/Syynth/rmc#readme"
+}
