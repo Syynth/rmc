@@ -46,4 +46,4 @@ class ComponentRegistry {
 
 }
 
-export default ComponentRegistry;
+export { ComponentRegistry };
