@@ -5,7 +5,7 @@ export function renderData(data, registry) {
     return data;
   }
   let { children, tagName, props } = data;
-  let kids = children.length > 0 ? children.map(renderData) : [];
+  let kids = children.map(renderData);
   let tagFn = tagName[0] == tagName[0].toLowerCase() ?
       tagName
     :
