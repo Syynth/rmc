@@ -24,7 +24,7 @@ class ComponentRegistry {
   }
 
   register(name, component) {
-    if (this[set].has(component)) {
+    if (this[set].has(component) || this[map].has(name)) {
       throw new Error('You cannot add the same component to a registry twice!');
     }
     this[set].add(component);
