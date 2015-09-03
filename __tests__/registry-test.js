@@ -27,6 +27,12 @@ describe('ComponentRegistry', () => {
       expect(inst.someComponent).toBeDefined();
     });
 
+    it('should now allow two components with the same name to be registered', () => {
+      let inst = new ComponentRegistry();
+      expect(() => inst.register('someComponent', () => 0)).not.toThrow();
+      expect(() => inst.register('someComponent', () => 0)).toThrow();
+    });
+
   });
 
   describe('component deregistration', () => {
