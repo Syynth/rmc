@@ -1,8 +1,10 @@
 import { createElement } from 'react'
 
-export function renderData({ props, children, tagName }) {
+export function renderData({ props, children, tagName }, registry) {
   let kids = children.length > 0 ? children.map(renderData) : [];
-  // TODO: Support lookups in the composite component registry
-  let tagFn = tagName[0] === tagName[0].toLowerCase() ? tagName : null;
+  let tagFn = tagName[0] == tagName[0].toLowerCase() ?
+      tagName
+    :
+      registry[tagName];
   return createElement(tagFn, props, ...kids);
 }
