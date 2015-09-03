@@ -4,7 +4,7 @@ const set = Symbol('set');
 
 class ComponentRegistry {
 
-  constructor(preload = {}, freeze = false) {
+  constructor(preload, freeze) {
     this[map] = new Map();
     this[set] = new Set();
     if (preload) {
@@ -12,15 +12,18 @@ class ComponentRegistry {
         .forEach(key => this.register(key, preload[key]));
     }
     if (freeze) {
-      Object.preventExtensions(this);
-      Object.freeze(this);
       delete this.register;
+      this.register = undefined;
       delete this.deregister;
+      this.deregister = undefined;
+      Object.seal(this);
+      Object.freeze(this);
+      Object.preventExtensions(this);
     }
 
   }
 
-  register(component, name) {
+  register(name, component) {
     if (this[set].has(component)) {
       throw new Error('You cannot add the same component to a registry twice!');
     }
