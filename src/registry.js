@@ -30,6 +30,7 @@ class ComponentRegistry {
     this[set].add(component);
     this[map].set(name, component);
     Object.defineProperty(this, name, {
+      configurable: true,
       // TODO: This might be a big-time bad idea.
       get: () => this[map].get(name)
     });
