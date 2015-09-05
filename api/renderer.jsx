@@ -1,16 +1,16 @@
-import { Component, createElement, PropTypes } from 'react'
+import { Component, createElement, DOM, PropTypes } from 'react'
 
 export function renderData(data, registry) {
   if (typeof data === 'string' || data instanceof String) {
     return data;
   }
   let { children, tagName, props } = data;
-  let kids = children.map(renderData);
+  let kids = children.map(child => renderData(child, registry));
   let tagFn = tagName[0] == tagName[0].toLowerCase() ?
-      tagName
+      DOM[tagFn]
     :
       registry[tagName];
-  return createElement(tagFn, props, ...kids);
+  return tagFn(props, ...kids);
 }
 
 export class RmcRenderer extends Component {
