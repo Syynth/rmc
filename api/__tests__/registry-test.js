@@ -1,6 +1,6 @@
-jest.dontMock('../src/registry.js');
+jest.dontMock('../registry.js');
 
-const ComponentRegistry = require('../src/registry.js');
+const ComponentRegistry = require('../registry.js');
 
 describe('ComponentRegistry', () => {
 
