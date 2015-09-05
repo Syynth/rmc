@@ -34,16 +34,16 @@ class ComponentRegistry {
       throw new Error('You cannot add the same component to a registry twice!');
     }
     this[set].add(componentJSON);
-    this[map].set(name, _ => this[render](component, this));
+    this[map].set(name, component);
     Object.defineProperty(this, name, {
       configurable: true,
-      get: () => this[map].get(name)
+      get: () => _ => this[render](this[map].get(name), this)
     });
     return this;
   }
 
   deregister(name) {
-    this[set].delete(this[name]);
+    this[set].delete(JSON.stringify(this[map].get(name)));
     this[map].delete(name);
     delete this[name];
     return this;
