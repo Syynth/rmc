@@ -1,0 +1,32 @@
+{
+  "name": "rmc-builder",
+  "version": "1.0.0",
+  "description": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest -c jest.config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Syynth@github.com/syynth/rmc.git"
+  },
+  "keywords": [
+    "React",
+    "Meta",
+    "Components",
+    "rmc",
+    "wysiwig",
+    "builder",
+    "editor"
+  ],
+  "author": "Ben Cochrane",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/syynth/rmc/issues"
+  },
+  "homepage": "https://github.com/syynth/rmc#readme",
+  "dependencies": {
+    "react": "^0.14.0-beta1",
+    "react-dom": "^0.14.0-beta1"
+  }
+}
