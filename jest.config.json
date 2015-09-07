@@ -2,5 +2,6 @@
   "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
   "testFileExtensions": ["js"],
   "moduleFileExtensions": ["js", "json", "jsx"],
+  "unmockedModulePathPatterns": ["<rootDir>/node_modules/react"],
   "rootDir": "./"
 }
