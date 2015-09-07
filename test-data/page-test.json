@@ -1,9 +1,23 @@
 {
-  "props": { "className": "ul-class-test" },
-  "children": [
-    { "props": {}, "children": ["Item one"],   "tagName": "li" },
-    { "props": {}, "children": ["Item two"],   "tagName": "li" },
-    { "props": {}, "children": ["Item three"], "tagName": "li" },
-  ],
-  "tagName": "ul"
+  "props": {
+    "className": "ul-class-test"
+  },
+  "children": [{
+    "props": {},
+    "children": ["Item one"],
+    "tagName": "li"
+  }, {
+    "props": {},
+    "children": ["Item two"],
+    "tagName": "li"
+  }, {
+    "props": {},
+    "children": ["Item three"],
+    "tagName": "li"
+  }],
+  "tagName": "ul",
+  "propInfo": [{
+    "name": "testProp",
+    "type": "string"
+  }]
 }

@@ -1,12 +1,17 @@
 
 const map = Symbol('map');
 const set = Symbol('set');
+const render = Symbol('render');
 
 class ComponentRegistry {
 
-  constructor(preload, freeze) {
+  constructor({ renderFn, preload, freeze = false }) {
     this[map] = new Map();
     this[set] = new Set();
+    if (!renderFn) {
+      throw new TypeError('Component Registry must be given a render function');
+    }
+    this[render] = renderFn;
     if (preload) {
       Object.keys(preload)
         .forEach(key => this.register(key, preload[key]));
@@ -24,21 +29,21 @@ class ComponentRegistry {
   }
 
   register(name, component) {
-    if (this[set].has(component) || this[map].has(name)) {
+    let componentJSON = JSON.stringify(component);
+    if (this[set].has(componentJSON) || this[map].has(name)) {
       throw new Error('You cannot add the same component to a registry twice!');
     }
-    this[set].add(component);
+    this[set].add(componentJSON);
     this[map].set(name, component);
     Object.defineProperty(this, name, {
       configurable: true,
-      // TODO: This might be a big-time bad idea.
-      get: () => this[map].get(name)
+      get: () => _ => this[render](this[map].get(name), this)
     });
     return this;
   }
 
   deregister(name) {
-    this[set].delete(this[name]);
+    this[set].delete(JSON.stringify(this[map].get(name)));
     this[map].delete(name);
     delete this[name];
     return this;
